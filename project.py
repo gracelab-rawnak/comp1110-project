@@ -1,5 +1,5 @@
 def parse_move(text, board):
-    if text == "2":
+    if text == "1":
         column = 0
     elif text == "2":
         column = 1
