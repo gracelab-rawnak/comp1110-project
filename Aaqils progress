@@ -3,7 +3,7 @@ columns = 7
 
 def drop_piece(board, col, player):
     
-    new_board = [row[:] for row in board]    # makes a copy of the board that is passed through here(ill make the board later)
+    new_board = [row[:] for row in board]    # makes a copy of the board that is passed through here(ill make the board later im still testing the board out with the functions)
     for row in range(5, -1, -1):             # makes it so that if a move is made it starts from the bottom row of the column
         if new_board[row][col] == ".":
             new_board[row][col] = player
