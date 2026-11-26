@@ -1,10 +1,15 @@
 def parse_move(text, board):
-    text = text.strip()
+    text = text.strip()   # removes any accidental whitespace from both the beginning and end of the player's typed input string
     if not text.isdigit():
         return None
 
 num = int(text)
-if num < 1 or num >7:
+if num < 1 or num >7:     # makes sure the number falls within range of 1 to 7
     return None
 
-col = num - 1
+col = num - 1             # subtracts 1 from the players (1-7) so that it matches the computers column numbering             
+
+def render_board(board):
+    lines = [" ".join(row) for row in board]
+    lines.append("1 2 3 4 5 6 7")  # adds the numbers 1 to 7 at the very bottom
+    return "/n".join(lines)  # glues al the lines together with new lines in between and sends back the text
