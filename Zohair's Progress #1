@@ -3,13 +3,23 @@ def parse_move(text, board):
     if not text.isdigit():
         return None
 
-num = int(text)
-if num < 1 or num >7:     # makes sure the number falls within range of 1 to 7
-    return None
+    num = int(text)
+    if num < 1 or num >7:     # makes sure the number falls within range of 1 to 7
+        return None
 
-col = num - 1             # subtracts 1 from the players (1-7) so that it matches the computers column numbering             
+    col = num - 1             # subtracts 1 from the players (1-7) so that it matches the computers column numbering             
 
 def render_board(board):
     lines = [" ".join(row) for row in board]
     lines.append("1 2 3 4 5 6 7")  # adds the numbers 1 to 7 at the very bottom
     return "/n".join(lines)  # glues al the lines together with new lines in between and sends back the text
+    
+
+
+def replay_game(moves):
+    board = [["."] * 7  for row in range(6)] # this creates a empty 6x7 game board filled with dots
+    player = "X"                             # sets the starting player as "X"
+    for col in moves:                        # loops through every colum number in the list one by one
+        board = drop_peice(board, col, player)
+        player = "0" if player == "X" else "X" # switches the player turn for the next move
+    return board
