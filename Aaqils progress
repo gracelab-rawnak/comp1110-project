@@ -1,0 +1,20 @@
+rows = 6
+columns = 7
+
+def drop_piece(board, col, player):
+    
+    new_board = [row[:] for row in board]    # makes a copy of the board that is passed through here(ill make the board later)
+    for row in range(5, -1, -1):             # makes it so that if a move is made it starts from the bottom row of the column
+        if new_board[row][col] == ".":
+            new_board[row][col] = player
+            return new_board
+    return None
+        
+
+def legal_moves(board):
+    moves = []                         # this is an empty list for storing how many empty columns are left
+    for col in range(columns):
+        if board[0][col] == ".":       # if the top cell is empty, a piece can still be dropped in this column
+            moves.append(col)          # adds the column number to the list of legal moves
+    return moves
+    
