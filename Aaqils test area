@@ -1,0 +1,29 @@
+#1st board code (but idk how you will put in the xs or Os for both of these)
+rows = 6
+column = 7
+
+def board_display():
+    board = "|  |"
+    b = board*column
+    for boards in range(rows-1):
+        print(b)
+    return b
+print(board_display())
+
+
+
+#2nd code for the board diplay
+
+def board():
+    rows = 6
+    cols = 7
+
+    for row in range(rows):
+        print("|", end="")
+        for col in range(cols):
+            print(" . ", end="")
+        print("|")
+
+    return("  1  2  3  4  5  6  7")
+    
+print(board())
